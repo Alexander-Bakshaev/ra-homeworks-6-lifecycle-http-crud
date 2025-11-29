@@ -73,7 +73,7 @@ ra-homeworks-6-lifecycle-http-crud/
 │   │   ├── App.jsx          # Корневой компонент
 │   │   └── main.jsx         # Точка входа
 │   └── package.json         # Зависимости фронтенда
-└── README.md                # Этот файл
+└── README.md                # Документация проекта
 ```
 
 ## 🔧 Использование
