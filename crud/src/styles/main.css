@@ -1,0 +1,257 @@
+/* === ОСНОВНЫЕ СТИЛИ === */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+}
+
+/* === СТИЛИ ЗАГОЛОВКА === */
+h1 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #2c3e50;
+  margin: 0 0 1.5rem;
+}
+
+/* === СТИЛИ КНОПОК === */
+.refresh-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #334155;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background: #e2e8f0;
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.refresh-btn .icon {
+  font-size: 1.25rem;
+  transition: all 0.2s ease;
+  display: block;
+  color: #334155;
+}
+
+.refresh-btn:not(:disabled):hover .icon {
+  transform: rotate(180deg);
+  opacity: 0.9;
+}
+
+.refresh-btn:active .icon {
+  transform: rotate(180deg) scale(0.95);
+}
+
+/* Кнопка добавления заметки */
+.add-note-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #334155;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-note-btn:hover:not(:disabled) {
+  background: #e2e8f0;
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.add-note-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.add-note-btn .icon {
+  font-size: 1.4rem;
+  transition: all 0.2s ease;
+  display: block;
+  color: #334155;
+  font-weight: 600;
+}
+
+.add-note-btn:not(:disabled):hover .icon {
+  transform: rotate(90deg);
+}
+
+.add-note-btn:active .icon {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* Анимация вращения */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin {
+  animation: spin 0.6s linear infinite;
+  will-change: transform;
+  transform-origin: center;
+}
+
+/* === СТИЛИ ФОРМЫ === */
+.note-form {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.note-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.note-form textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.note-form textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+/* === КОНТЕЙНЕР ЗАМЕТОК === */
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* === КАРТОЧКА ЗАМЕТКИ === */
+.note {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.note:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.note-content {
+  white-space: pre-line;
+  word-break: break-word;
+  line-height: 1.6;
+  color: #2d3748;
+}
+
+.note-content p {
+  margin: 0.5rem 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8d7da;
+  border: none;
+  border-radius: 50%;
+  color: #e53e3e;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.note:hover .close-btn {
+  opacity: 1;
+}
+
+.close-btn:hover {
+  background: #f5b7b1;
+  transform: scale(1.1);
+}
+
+/* === ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ === */
+.error-message {
+  background-color: #fef2f2;
+  color: #dc2626;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  border-left: 4px solid #dc2626;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* === АДАПТИВНЫЕ СТИЛИ === */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  
+  .notes-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .note-form {
+    padding: 1.25rem;
+  }
+}
